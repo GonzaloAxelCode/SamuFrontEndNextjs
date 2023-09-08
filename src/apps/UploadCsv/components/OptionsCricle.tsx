@@ -4,6 +4,9 @@ import { SplitButton } from "primereact/splitbutton";
 import { Toast } from "primereact/toast";
 
 import ConfirmationPanel from "@/src/Common/components/Confirmation";
+import { Button } from 'primereact/button';
+
+import { siteURL } from "@/src/lib/envs";
 import { useRef, useState } from "react";
 import useUpload from "../hooks/useUpload";
 import DragAnDrop from "./DragAnDropUpload";
@@ -24,24 +27,26 @@ export default function OptionsCircle({ nameModel = "d" }: any) {
         setVisiblePanelConfirmation(true);
       },
     },
-    {
-      label: "Descargar",
-      icon: "pi pi-download",
-      command: () => {
-        setNameModelSelect(nameModel);
-        setOpen(true);
-      },
-    },
+
   ];
   const save = () => {
     setNameModelSelect(nameModel);
     setVisible(true);
   };
 
+
   return (
     <div className="card">
       <div style={{ position: "relative" }}>
         <Toast ref={toast} />
+        {nameModel === "maestro_his_nuevo_archivo_plano" &&
+          <a href={`${siteURL}/api/export-csv-maestro_his_nuevo_archivo_plano`} target="_blank" rel="noreferrer">
+            <Button label="Exportar CSV" size="small" severity="success" outlined rounded >
+
+            </Button>
+          </a>
+        }
+
 
         <SplitButton
           buttonTemplate
@@ -51,6 +56,7 @@ export default function OptionsCircle({ nameModel = "d" }: any) {
           model={items}
           rounded
           size="small"
+          className="ml-3"
         />
 
         <Dialog

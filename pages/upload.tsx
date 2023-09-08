@@ -51,8 +51,7 @@ const Uppload = () => {
                       </span>
                     </div>
                     <p className="pt-3" style={{ fontSize: "14px" }}>
-                      En Tailwind CSS, puedes establecer el radio de borde
-                      (border radius) utilizando la clase d seguida{" "}
+
                     </p>
                     <Tree
                       className="pt-3 -ml-4 border-none outline-none"
@@ -80,10 +79,12 @@ const Uppload = () => {
             );
           })}
         </div>
+
+       
         <EskeletonCardUpload open={isLoadingModals} />
       </div>
       <InfoResponse />
-    </Layout>
+    </Layout >
   );
 };
 
