@@ -24,6 +24,7 @@ export default function DragAnDrop({ setVisible, headerTitle }: any) {
   const { uploadFileInDB, loadingUpload, infoSuccess, modelSelected } =
     useUpload();
   const { setVisibleWithoutModal } = useContext(UIContext);
+  
 
   const chooseOptions = {
     icon: "pi pi-fw pi-file-import",
@@ -64,8 +65,8 @@ export default function DragAnDrop({ setVisible, headerTitle }: any) {
         className="mt-2"
         uploadHandler={async () => {
           await uploadFileInDB(fileCSV);
-          setVisibleWithoutModal(modelSelected);
           setVisible(false);
+          setVisibleWithoutModal(modelSelected);
         }}
         disabled={loadingUpload}
         customUpload

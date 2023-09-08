@@ -39,11 +39,13 @@ const InfoResponse = () => {
     },
   ];
 
+
+
   return (
     <div>
       <WithoutModalDemo
         title={<p>{headerTitle?.replace(/_/g, " ")}</p>}
-        setOpen={setVisibleWithoutModal}
+        setOpen={() => setVisibleWithoutModal("")}
         isOpen={visibleWithoutModal === modelSelected}
         maximizable
       >
